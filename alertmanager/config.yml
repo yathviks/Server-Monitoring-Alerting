@@ -1,0 +1,14 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'yathvik2000@gmail.com'
+  smtp_auth_username: 'yathvik2000@gmail.com'
+  smtp_auth_password: 'seanvivzdlmcjgnj'
+
+route:
+  receiver: 'gmail-notify'
+
+receivers:
+  - name: 'gmail-notify'
+    email_configs:
+      - to: 'yathvikpapineni@gmail.com'
+        send_resolved: true

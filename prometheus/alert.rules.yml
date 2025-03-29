@@ -1,0 +1,29 @@
+groups:
+  - name: BashAlertRules
+    rules:
+      - alert: HighCPUUsage
+        expr: bash_cpu_usage > 60
+        for: 1s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage is {{ $value }}% for more than 1 second."
+
+      - alert: HighMemoryUsage
+        expr: bash_memory_usage > 60
+        for: 1s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High Memory usage detected"
+          description: "Memory usage is {{ $value }}% for more than 1 second."
+
+      - alert: HighDiskUsage
+        expr: bash_disk_usage > 60
+        for: 1s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk usage dangerously high"
+          description: "Disk usage is {{ $value }}% for more than 1 second."

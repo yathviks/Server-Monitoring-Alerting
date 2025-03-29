@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  bash-generator:
+    build: ./app
+    depends_on:
+      - pushgateway
+
+  pushgateway:
+    image: prom/pushgateway
+    ports:
+      - "9091:9091"
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+    ports:
+      - "9090:9090"
+
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/alertmanager.yml
+
+    ports:
+      - "9093:9093"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
