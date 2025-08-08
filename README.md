@@ -200,3 +200,4 @@ linq-devops-assessment/
 ## Final Note
 
 This project demonstrates real-world monitoring and alerting design in a lightweight, modular, and easily extensible format using the most widely adopted open-source tools in DevOps.
+"# Linq-Tech-Intern" 
